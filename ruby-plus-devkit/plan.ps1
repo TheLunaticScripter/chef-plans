@@ -14,7 +14,7 @@ $pkg_bin_dirs=@(
 $ruby_abi_version = [RegEx]::Replace($pkg_version, "\.\d+$", ".0")
 
 function Invoke-SetupEnvironment {
-    Push-RuntimeEnv -IsPath "GEM_PATH" "$pkg_prefix/lib/ruby/gems/$ruby_abi_version"
+    Push-RuntimeEnv -MeantToBreakTheBuild "GEM_PATH" "$pkg_prefix/lib/ruby/gems/$ruby_abi_version"
 }
 
 function Invoke-Unpack {
